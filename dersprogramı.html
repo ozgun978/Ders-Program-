@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="https://i.hizliresim.com/iggbtqal.png" />
+    <title>BPR 26 Girişliler Ders Programı</title>
+    <link rel="icon" type="image/png" href="https://i.hizliresim.com/iggbtqal.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-1: #0f172a;
+        --bg-2: #111827;
+        --card: rgba(15, 23, 42, 0.72);
+        --card-soft: rgba(30, 41, 59, 0.7);
+        --primary: #60a5fa;
+        --primary-strong: #2563eb;
+        --accent: #a78bfa;
+        --text: #e2e8f0;
+        --muted: #cbd5e1;
+        --line: rgba(148, 163, 184, 0.28);
+        --success: #34d399;
+        --warning: #fbbf24;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: radial-gradient(circle at top, #1e293b 0%, var(--bg-1) 30%, var(--bg-2) 100%);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .hamburger-wrapper {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .hamburger-toggle {
+        width: 54px;
+        height: 54px;
+        border: 1px solid rgba(96, 165, 250, 0.4);
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.38), rgba(14, 116, 144, 0.32));
+        backdrop-filter: blur(14px);
+        box-shadow: 0 12px 28px rgba(37, 99, 235, 0.22);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 0;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hamburger-toggle:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.46), rgba(13, 148, 136, 0.36));
+        box-shadow: 0 14px 30px rgba(59, 130, 246, 0.28);
+      }
+
+      .hamburger-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: linear-gradient(90deg, #e0f2fe, #bfdbfe, #dbeafe);
+        border-radius: 999px;
+        box-shadow: 0 0 8px rgba(191, 219, 254, 0.65);
+        transition: transform 0.25s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hamburger-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .side-menu {
+        position: fixed;
+        top: 84px;
+        left: 20px;
+        width: 220px;
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.32);
+        padding: 12px;
+        opacity: 0;
+        transform: translateX(-14px);
+        pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      .side-menu.open {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
+
+      .side-menu a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 12px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .side-menu a:hover {
+        background: rgba(96, 165, 250, 0.12);
+        color: #f8fafc;
+      }
+
+      .header {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(14, 116, 144, 0.9));
+        color: white;
+        padding: 32px 24px;
+        border-radius: 24px;
+        text-align: center;
+        box-shadow: 0 18px 38px rgba(37, 99, 235, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        animation: pageEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .header h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.8rem, 2.8vw, 3rem);
+        letter-spacing: 0.04em;
+      }
+
+      .header p {
+        margin: 0;
+        opacity: 0.92;
+        font-size: 1rem;
+      }
+
+      .header-actions {
+        margin-top: 18px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .contact-btn {
+        padding: 12px 20px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+
+      .contact-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .search-box {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(12px);
+        padding: 24px;
+        border-radius: 22px;
+        margin-top: 28px;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+        border: 1px solid var(--line);
+        animation: pageEnter 0.55s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .input-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input {
+        width: min(100%, 460px);
+        padding: 15px 18px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.8);
+        color: var(--text);
+        font-size: 16px;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+
+      input:focus {
+        border-color: rgba(96, 165, 250, 0.9);
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
+      }
+
+      button {
+        border: none;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        padding: 15px 22px;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.28);
+      }
+
+      button:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 14px 24px rgba(37, 99, 235, 0.38);
+        filter: brightness(1.08);
+      }
+
+      .friend-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .friend-btn {
+        background: rgba(96, 165, 250, 0.12);
+        color: var(--text);
+        border: 1px solid rgba(96, 165, 250, 0.5);
+        padding: 10px 16px;
+        min-width: 100px;
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        animation: friendEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: var(--friend-delay);
+      }
+
+      .friend-btn:hover {
+        background: rgba(96, 165, 250, 0.2);
+        transform: translateY(-2px) scale(1.02);
+        border-color: rgba(96, 165, 250, 0.8);
+      }
+
+      .schedule-card {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        background: rgba(15, 23, 42, 0.7);
+        border-radius: 24px;
+        padding: 24px;
+        margin-top: 30px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+        border: 1px solid var(--line);
+        transition: max-height 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      .schedule-card.active {
+        max-height: 2000px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .schedule-card.reveal {
+        animation: scheduleReveal 0.3s ease both;
+      }
+
+      .student-name {
+        margin: 0 0 18px;
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        color: #f8fafc;
+        letter-spacing: 0.02em;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(15, 23, 42, 0.35);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .schedule-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 14px 12px;
+        text-align: center;
+        color: var(--text);
+      }
+
+      thead th {
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.18));
+        color: #f8fafc;
+        font-weight: 700;
+      }
+
+      tbody td {
+        background: rgba(15, 23, 42, 0.35);
+      }
+
+      tbody th {
+        background: rgba(96, 165, 250, 0.08);
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .empty {
+        background: rgba(251, 191, 36, 0.12);
+        color: #fef3c7;
+        border: 1px solid rgba(251, 191, 36, 0.45);
+        border-radius: 14px;
+        padding: 18px;
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+        animation: fadeInUp 0.3s ease;
+      }
+
+      .empty.show {
+        display: block;
+      }
+
+      .site-footer {
+        background: rgba(15, 23, 42, 0.8);
+        color: var(--muted);
+        text-align: center;
+        padding: 22px 16px 26px;
+        border-top: 1px solid var(--line);
+        margin-top: 24px;
+        animation: pageEnter 0.55s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .site-footer p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .announcement-section {
+        max-width: 1200px;
+        margin: 30px auto 0;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 28px 24px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+        animation: pageEnter 0.55s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .announcement-section h3 {
+        margin: 0 0 18px;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+        color: #f8fafc;
+      }
+
+      .announcement-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid rgba(96, 165, 250, 0.32);
+        background: rgba(15, 23, 42, 0.6);
+      }
+
+      .announcement-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .announcement-slide {
+        min-width: 100%;
+        padding: 28px 22px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(14, 116, 144, 0.08));
+      }
+
+      .announcement-badge {
+        display: inline-block;
+        margin-bottom: 12px;
+        background: rgba(96, 165, 250, 0.15);
+        color: var(--primary);
+        border: 1px solid rgba(96, 165, 250, 0.4);
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .announcement-slide h4 {
+        margin: 0 0 10px;
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        color: #f8fafc;
+      }
+
+      .announcement-slide p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .announcement-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .announcement-arrow {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        background: rgba(96, 165, 250, 0.14);
+        border: 1px solid rgba(96, 165, 250, 0.34);
+        color: #f8fafc;
+        box-shadow: none;
+      }
+
+      .announcement-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(148, 163, 184, 0.38);
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .announcement-dot.active {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.14);
+      }
+
+      .contact-section {
+        max-width: 1200px;
+        margin: 30px auto 0;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 28px 24px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+        animation: pageEnter 0.55s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .contact-section h3 {
+        margin: 0 0 18px;
+        font-size: clamp(1.4rem, 2vw, 2rem);
+        color: #f8fafc;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .contact-card {
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.9));
+        border: 1px solid rgba(96, 165, 250, 0.35);
+        border-radius: 16px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 120px;
+        text-decoration: none;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(96, 165, 250, 0.7);
+        box-shadow: 0 14px 28px rgba(37, 99, 235, 0.18);
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(30, 41, 59, 0.96));
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.25), rgba(167, 139, 250, 0.25));
+        color: var(--primary);
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-icon i {
+        display: inline-block;
+        line-height: 1;
+        font-size: 1.2rem;
+      }
+
+      .contact-card h4 {
+        margin: 0 0 6px;
+        color: var(--primary);
+        font-size: 1rem;
+      }
+
+      .contact-card p,
+      .contact-card a {
+        margin: 0;
+        color: var(--text);
+        text-decoration: none;
+        line-height: 1.6;
+        font-size: 0.96rem;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scheduleReveal {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes friendEnter {
+        from {
+          opacity: 0;
+          transform: translateY(8px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          margin: 20px auto;
+          padding: 14px;
+        }
+
+        .header {
+          padding: 24px 18px;
+        }
+
+        .header h1 {
+          font-size: 1.6rem;
+        }
+
+        .search-box,
+        .schedule-card,
+        .contact-section {
+          padding: 18px;
+        }
+
+        .input-row {
+          flex-direction: column;
+        }
+
+        input,
+        button {
+          width: 100%;
+        }
+
+        .friend-list {
+          gap: 10px;
+        }
+
+        .friend-btn {
+          flex: 1 1 calc(50% - 10px);
+          min-width: 0;
+          animation-delay: calc(var(--friend-delay) * 0.45);
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-card {
+          padding: 14px;
+        }
+
+        .contact-inline {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .contact-inline-item {
+          width: 100%;
+        }
+
+        table {
+          min-width: 900px;
+          font-size: 12px;
+          border-collapse: separate;
+          border-spacing: 0;
+        }
+
+        .schedule-table-wrapper th:first-child {
+          position: -webkit-sticky;
+          position: sticky !important;
+          left: 0 !important;
+          z-index: 2;
+          width: 118px;
+          min-width: 118px;
+          background: #1e293b;
+          box-shadow: 4px 0 8px rgba(15, 23, 42, 0.35);
+        }
+
+        .schedule-table-wrapper td:first-child {
+          position: -webkit-sticky;
+          position: sticky !important;
+          left: 0 !important;
+          z-index: 2;
+          background: #1e293b;
+          box-shadow: 4px 0 8px rgba(15, 23, 42, 0.35);
+        }
+
+        .schedule-table-wrapper thead th:first-child {
+          z-index: 3;
+          background: #263b5c;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hamburger-wrapper">
+      <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Menü aç/kapat" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="side-menu" id="sideMenu" aria-label="Ana menü">
+        <a href="#top">Ana Sayfa</a>
+        <a href="#searchBox">Program Aç</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="#duyurular">Duyurular</a>
+      </nav>
+    </div>
+
+    <div class="container" id="top">
+      <header class="header">
+        <h1><i class="fa-solid fa-calendar-days"></i> BPR 26 Girişliler Ders Programı</h1>
+        <p>Adını yaz, programını gör.</p>
+        <div class="header-actions">
+          <a class="contact-btn" href="#iletisim">İletişim</a>
+        </div>
+      </header>
+
+      <section class="search-box" id="searchBox">
+        <div class="input-row">
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="Örn: Ali, Ayşe, Mehmet..."
+            aria-label="Arkadaş adı"
+          />
+          <button id="showBtn"><i class="fa-solid fa-magnifying-glass"></i> Program Aç</button>
+        </div>
+
+        <div class="friend-list" id="friendList"></div>
+      </section>
+
+      <div class="empty" id="emptyMessage">
+        Bu isimde bir kişi bulunamadı. Lütfen doğru adı yazın.
+      </div>
+
+      <section class="schedule-card" id="scheduleCard">
+        <h2 class="student-name" id="studentName">-</h2>
+        <div class="schedule-table-wrapper">
+          <table>
+            <thead id="scheduleHead"></thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <section class="announcement-section" id="duyurular">
+      <h3>Duyurular</h3>
+      <div class="announcement-slider" aria-live="polite">
+        <div class="announcement-track" id="announcementTrack">
+          <article class="announcement-slide">
+            <span class="announcement-badge">DUYURU</span>
+            <h4>Yeni ders programı güncellemesi</h4>
+            <p>Programı kullanırken güncel ders programını kontrol etmeyi unutmayın. Son değişiklikleri Tınaztepe Üniversitesinde bulabilirsiniz.</p>
+          </article>
+
+          <article class="announcement-slide">
+            <span class="announcement-badge">ÖNEMLİ</span>
+            <h4>İletişim bilgileri güncellendi</h4>
+            <p>E-posta, telefon ve GitHub bilgileri iletişim bölümünde hazır. Her zaman ulaşabilirsiniz.</p>
+          </article>
+
+          <article class="announcement-slide">
+            <span class="announcement-badge">NOT</span>
+            <h4>Haftalık plan kontrolü</h4>
+            <p>Ders programınızı her hafta kontrol edin. Bazı dersler ve blok bilgileri değişiklik gösterebilir. </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="announcement-controls" id="announcementControls" aria-label="Duyuru sayfaları">
+        <button class="announcement-arrow" id="announcementPrev" aria-label="Önceki duyuru">‹</button>
+        <button class="announcement-dot active" aria-label="1. duyuru"></button>
+        <button class="announcement-dot" aria-label="2. duyuru"></button>
+        <button class="announcement-dot" aria-label="3. duyuru"></button>
+        <button class="announcement-arrow" id="announcementNext" aria-label="Sonraki duyuru">›</button>
+      </div>
+    </section>
+
+    <section class="contact-section" id="iletisim">
+      <h3>İletişim</h3>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:aksade1912ozgun@gmail.com">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h4>E-posta</h4>
+            <p>aksade1912ozgun@gmail.com</p>
+          </div>
+        </a>
+
+        <a class="contact-card" href="tel:+905425536548">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>Telefon</h4>
+            <p>+90 542 553 65 48</p>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://github.com/ozgun978" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <h4>GitHub</h4>
+            <p>ozgun978</p>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/özgün-aksade-636a79396/" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+          <div>
+            <h4>Linkedin</h4>
+            <p>Özgün Aksade</p>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://dsos.tinaztepe.edu.tr/program" target="_blank" rel="noopener noreferrer">
+          <div class="contact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <h4>Tınaztepe Üniversitesinde Gör</h4>
+            <p>Resmî ders programı</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>© Tüm Hakları Özgün AKSADE'ye aittir.</p>
+      </div>
+    </footer>
+
+    <script>
+      const hamburgerToggle = document.getElementById('hamburgerToggle');
+      const sideMenu = document.getElementById('sideMenu');
+
+      function closeMenu() {
+        sideMenu.classList.remove('open');
+        hamburgerToggle.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburgerToggle.addEventListener('click', () => {
+        const isOpen = sideMenu.classList.toggle('open');
+        hamburgerToggle.classList.toggle('active', isOpen);
+        hamburgerToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!sideMenu.contains(event.target) && !hamburgerToggle.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      sideMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      const announcementTrack = document.getElementById('announcementTrack');
+      const announcementDots = Array.from(document.querySelectorAll('.announcement-dot'));
+      const announcementSlides = Array.from(document.querySelectorAll('.announcement-slide'));
+      const announcementPrev = document.getElementById('announcementPrev');
+      const announcementNext = document.getElementById('announcementNext');
+      let currentAnnouncementIndex = 0;
+      let autoSlideTimer;
+
+      function updateAnnouncementSlider(index) {
+        currentAnnouncementIndex = (index + announcementSlides.length) % announcementSlides.length;
+        announcementTrack.style.transform = `translateX(-${currentAnnouncementIndex * 100}%)`;
+
+        announcementDots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('active', dotIndex === currentAnnouncementIndex);
+        });
+      }
+
+      function startAutoSlide() {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = setInterval(() => {
+          updateAnnouncementSlider(currentAnnouncementIndex + 1);
+        }, 3200);
+      }
+
+      announcementPrev.addEventListener('click', () => {
+        updateAnnouncementSlider(currentAnnouncementIndex - 1);
+        startAutoSlide();
+      });
+
+      announcementNext.addEventListener('click', () => {
+        updateAnnouncementSlider(currentAnnouncementIndex + 1);
+        startAutoSlide();
+      });
+
+      announcementDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          updateAnnouncementSlider(index);
+          startAutoSlide();
+        });
+      });
+
+      let startX = 0;
+
+      announcementTrack.addEventListener('pointerdown', (event) => {
+        startX = event.clientX;
+      });
+
+      announcementTrack.addEventListener('pointerup', (event) => {
+        const diff = event.clientX - startX;
+
+        if (Math.abs(diff) > 50) {
+          if (diff < 0) {
+            updateAnnouncementSlider(currentAnnouncementIndex + 1);
+          } else {
+            updateAnnouncementSlider(currentAnnouncementIndex - 1);
+          }
+          startAutoSlide();
+        }
+      });
+
+      startAutoSlide();
+
+      const students = {
+        Ada: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+              "-",
+              "Etkin ve Kurumsal İletişim C Blok/C204-TIP",
+              "Etkin ve Kurumsal İletişim C Blok/C204-TIP",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Özgün: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Yiğit: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Ömer: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Sena: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Gökay: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        MehmetCan: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Neşe: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Efe: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Web Sitesi Tasarım C Blok/C103",
+              "Web Sitesi Tasarım C Blok/C103",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Ege: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Web Sitesi Tasarım C Blok/C103",
+              "Web Sitesi Tasarım C Blok/C103",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Elber: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Deniz: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Eren: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Hira: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Zeynep: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+        },
+        Sude: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Erol: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Sağlıkta Nanoteknoloji Uygulamaları C Blok/C204-TIP",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+         Selin: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Sezen: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "-",
+              "-",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+        Yusuf: {
+          dersler: {
+            Pazartesi: [
+              "-",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Öğle Arası",
+              "Algoritma ve Programlamaya Giriş C blok/C303",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "Veri Tabanına Giriş C blok/C402",
+              "veri Tabanına Giriş C blok/C402",
+            ],
+            Salı: [
+              "-",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Bilgisayar Donanımı B Blok/B214",
+              "Öğle Arası",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303",
+              "Teknolojinin Bilimsel İlkeleri ve Dijital Okur Yazarlık C Blok/C303"
+            ],
+            Çarşamba: [
+              "Web Sitesi Tasarım C Blok/C103",
+              "Web Sitesi Tasarım C Blok/C103",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Dijital Görsel Tasarıma Giriş C Blok/C303",
+              "Öğle Arası",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders",
+              "Atatürk İlkeleri ve İnkılap Tarihi online ders"
+            ],
+            Perşembe: [
+              "-",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Mesleki Matematik-I C Blok/C201",
+              "Öğle Arası",
+            ],
+            Cuma: [
+              "GÜN",
+              "BOŞ",
+              "KAFA",
+              "RAAD",
+              "BROOO",
+              "-",
+              "-",
+              "-",
+              "-",
+              "Türk Dili ve Edebiyatı online ders",
+              "Türk Dili ve Edebiyatı online ders"
+            ]
+          }
+          
+        },
+      };
+    
+      const nameInput = document.getElementById("nameInput");
+      const showBtn = document.getElementById("showBtn");
+      const friendList = document.getElementById("friendList");
+      const scheduleCard = document.getElementById("scheduleCard");
+      const studentName = document.getElementById("studentName");
+      const scheduleBody = document.getElementById("scheduleBody");
+      const emptyMessage = document.getElementById("emptyMessage");
+
+      function renderFriendButtons() {
+        friendList.innerHTML = "";
+        Object.keys(students).forEach((name, index) => {
+          const btn = document.createElement("button");
+          btn.className = "friend-btn";
+          btn.style.setProperty("--friend-delay", `${0.18 + index * 0.07}s`);
+          btn.textContent = name;
+          btn.addEventListener("click", () => {
+            showSchedule(name);
+          });
+          friendList.appendChild(btn);
+        });
+      }
+
+      function showSchedule(name) {
+        const cleanName = name.trim();
+
+        if (!cleanName) {
+          emptyMessage.classList.add("show");
+          scheduleCard.classList.remove("active");
+          return;
+        }
+
+        const student = Object.keys(students).find(
+          (key) => key.toLowerCase() === cleanName.toLowerCase()
+        );
+
+        if (!student) {
+          emptyMessage.classList.add("show");
+          scheduleCard.classList.remove("active");
+          return;
+        }
+
+        const selectedStudent = students[student];
+        emptyMessage.classList.remove("show");
+        studentName.textContent = student;
+        scheduleBody.innerHTML = "";
+
+        scheduleCard.classList.remove("active");
+        scheduleCard.classList.remove("reveal");
+        void scheduleCard.offsetWidth;
+
+        const days = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"];
+        const timeSlots = [
+          "08.30 - 09.15",
+          "09.30 - 10.15",
+          "10.30 - 11.15",
+          "11.30 - 12.15",
+          "12.30 - 13.15",
+          "14.30 - 15.15",
+          "15.30 - 16.15",
+          "16.30 - 17.15",
+          "17.30 - 18.15",
+          "18.30 - 19.15",
+          "19.30 - 20.15",
+        ];
+
+        const scheduleHead = document.getElementById("scheduleHead");
+        scheduleHead.innerHTML = "";
+
+        const headerRow = document.createElement("tr");
+        const emptyHeaderCell = document.createElement("th");
+        emptyHeaderCell.textContent = "";
+        headerRow.appendChild(emptyHeaderCell);
+
+        days.forEach((day) => {
+          const th = document.createElement("th");
+          th.textContent = day;
+          headerRow.appendChild(th);
+        });
+
+        scheduleHead.appendChild(headerRow);
+        scheduleBody.innerHTML = "";
+
+        timeSlots.forEach((time, index) => {
+          const row = document.createElement("tr");
+
+          const timeCell = document.createElement("th");
+          timeCell.textContent = time;
+          row.appendChild(timeCell);
+
+          days.forEach((day) => {
+            const cell = document.createElement("td");
+            const lesson = (selectedStudent.dersler[day] || ["-", "-", "-", "-"])[index] || "-";
+            cell.textContent = lesson;
+            row.appendChild(cell);
+          });
+
+          scheduleBody.appendChild(row);
+        });
+
+        requestAnimationFrame(() => {
+          scheduleCard.classList.add("active");
+          scheduleCard.classList.add("reveal");
+        });
+        nameInput.value = student;
+      }
+
+      showBtn.addEventListener("click", () => {
+        showSchedule(nameInput.value);
+      });
+
+      nameInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          showSchedule(nameInput.value);
+        }
+      });
+
+      renderFriendButtons();
+    </script>
+  </body>
+</html>
